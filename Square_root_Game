@@ -1,0 +1,113 @@
+import java.util.Scanner;
+import java.util.Random;
+
+class Game
+{
+	 public static void Square_Sqroot()
+	 {
+		Scanner sc = new Scanner(System.in);
+		Random rd = new Random();
+		
+		System.out.println("Enter your name :");
+		String user = sc.next();
+		System.out.println();
+		
+		System.out.println(user+" welcome the game..");
+		
+		System.out.println();
+		System.out.println("Game Rules are :");
+		System.out.println("1.Answer the some questions.");
+		System.out.println("2.Each correct answer result in +1 point");
+		System.out.println("3.On incorrect answer you get 0 point and you start overall game again");
+		System.out.println("4.On 3 Consective correct answer you won game");
+		System.out.println();
+		System.out.println(user+" let's start game !!!");
+		System.out.println();
+		
+		Boolean game = true;
+		int cnt=0;
+		
+		while(game)
+		{
+			int rand_int = rd.nextInt(100);
+			int rand_int1 = rd.nextInt(100);
+			int que, ans;
+			
+			//Question for Square
+			que = rand_int;
+			System.out.println("What is a Square of number: "+que+" ?");
+			ans=sc.nextInt();
+		
+			if(que*que == ans)
+			{
+				System.out.println("Correct answer! good job "+ user + "!");
+				cnt++;
+			}
+			else
+			{
+				System.out.println("Oops "+user+" wrong ans!!");
+				cnt=0;
+				continue;
+			}
+			System.out.println("Yaa "+user+" your answer count is: "+cnt);
+			System.out.println();
+			
+			
+			 // If win condition
+			if (cnt == 3) break;
+			
+			//Question for Square root.
+			que = rand_int1*rand_int1;
+			System.out.println("What is a Square root of number: "+ que +" ?");
+			ans = sc.nextInt();
+			
+			if(rand_int1 == ans)
+			{
+				System.out.println("Correct answer good job!!" + user +" !");
+				cnt++;
+			}
+			else
+			{
+				System.out.println("Oops "+ user +" wrong answer!!");
+				cnt=0;
+			}
+			System.out.println("Yaa "+ user +" your answer count is: "+ cnt );
+			System.out.println();
+			
+			 // If win condition
+			if (cnt == 3) break;
+			
+				System.out.println(user + " do you want to continue?");
+				System.out.println(" Continue press : 1 | Exit press : 0");
+				int continueGame = sc.nextInt();
+			
+				  if(continueGame == 1)
+				 {
+					 continue;
+				 }
+				else
+				{
+					break;
+				}
+		}
+		if(cnt==3)
+			{
+				try
+				{
+					System.out.println();
+					System.out.println("Congratulations, " + user + "! You won the game.");
+					Thread.sleep(1000);
+				}
+				catch(Exception e)
+				{
+					System.out.println(e);
+				}
+			}
+		System.out.println("Bye Bye "+ user +"!!!");
+		sc.close();
+	 }
+	public static void main(String args[])
+	{
+		Square_Sqroot();
+	}
+}
